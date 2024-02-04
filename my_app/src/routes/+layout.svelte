@@ -1,7 +1,18 @@
 <script>
 	import '../app.css';
+
+	let title = 'Sample Title'
+	import '$lib/global.css'
+	import Footer from '../lib/Footer.svelte';
 </script>
 
-<div>
-	<h1 class="text-3xl text-gray-200">Hello world!</h1>
+<div class="flex flex-col items-center justify-center h-screen">
+	<nav class="flex w-screen gap-8 px-4 text-4xl justify-right">
+		<a href="/">home</a>
+		<a href="/about">about</a>
+		<a href="blog">blog</a>
+		<a href="contact">contact</a>
+	</nav>
+	<slot />	
+	<Footer />
 </div>
