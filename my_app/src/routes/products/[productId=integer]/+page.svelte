@@ -7,4 +7,5 @@
     <h1>{title}</h1>
     <h2>{product.title} - {product.price}</h2>
     <p>{product.description}</p>
+    <a href="/products">back</a>
 </div>

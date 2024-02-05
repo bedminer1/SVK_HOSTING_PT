@@ -10,4 +10,7 @@
     <div>
         <p><a href="/products/3">Product 3</a></p>
     </div>
+    <div>
+        <p><a href="/products/4">Product 4</a></p>
+    </div>
 </div>
