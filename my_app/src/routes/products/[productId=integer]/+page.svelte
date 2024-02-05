@@ -1,9 +1,10 @@
 <script>
-    import { page } from '$app/stores'
-    const productId = $page.params.productId
-
+    export let data
+    const { title, product } = data
 </script>
 
-<div>
-    <h1>Details about product {productId}</h1>
+<div class="flex flex-col justify-center h-full text-2xl">
+    <h1>{title}</h1>
+    <h2>{product.title} - {product.price}</h2>
+    <p>{product.description}</p>
 </div>
