@@ -1,10 +1,13 @@
 <script>
 	import '../app.css';
-
-	let title = 'Sample Title'
 	import '$lib/global.css'
 	import Footer from '../lib/Footer.svelte';
+	import { page } from '$app/stores'
 </script>
+
+<svelte:head>
+	<title>{$page.data.title || `bed's shop`}</title>
+</svelte:head>
 
 <div class="flex flex-col items-center justify-center h-screen text-center">
 	<nav class="flex justify-between w-screen gap-8 px-4 text-3xl">
