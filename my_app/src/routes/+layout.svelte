@@ -18,8 +18,7 @@
 			<a href="/contact">contact</a>
 		</div>
 		<div class="flex gap-4">
-			<a href="/login">login</a>
-			<a href="/register">register</a>
+			<a href="/login">login/register</a>
 		</div>
 	</nav>
 	<div class="flex justify-center h-full">

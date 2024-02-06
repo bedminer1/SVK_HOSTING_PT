@@ -1,4 +1,4 @@
-export const load = () => {
+export const load = ({ cookies }) => {
     return {
         username: "bed"
     }
