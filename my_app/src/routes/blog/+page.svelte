@@ -4,24 +4,23 @@
 	let selectedItem
 </script>
 
-<div class="flex flex-col justify-center w-1/2 h-full align-items">
+<div class="flex flex-col justify-center w-3/4 h-full align-items">
 	<h2 class="text-5xl text-center">Blog</h2>
 	
-	<form action="?/create" method="post" class="flex flex-col gap-1 mt-8 mb-8">
-		<div class="flex items-center justify-start w-[60vh] h-5 gap-3 mb-0">
+	<form action="?/create" method="post" class="flex flex-col items-center gap-1 pb-2 mt-8 mb-8 border-b-2">
+		<div class="flex items-center justify-center w-[60vh] h-5 gap-3 mb-0">
 			<label for="blogname">blog title</label>
 			<input type="text" required name="blogname" class="px-1 text-gray-800">
 			<label for="read">Read</label>
 			<input name="read" type="checkbox">
 		</div>
 		<button type="submit" class="pt-0 mt-0">Add</button>
-		<hr>
 	</form>
 
 	<div>
-		<ol>
+		<ol class="flex justify-start ">
 			{#each data?.records as record, index}
-			<li>
+			<li class="w-2/3 border-l-2">
 				<input id={`blog-checkbox-${index}`} checked={selectedItem?.blogname === record.blogname} type="checkbox" value={JSON.stringify(record)} on:click={()=> selectedItem = (selectedItem?.blogname !== record.blogname)? record  : undefined}/>
 				{`Blog Title: ${record.blogname} - Status: ${record.read ? 'read':'not read'}`}
 			</li>			
@@ -29,8 +28,8 @@
 			{/each}
 		</ol>
 		{#if selectedItem}
-		<form action="?/update" method='post' class="flex flex-col mt-10">
-				<div class="flex items-center justify-start w-[60vh] h-5 gap-3 mb-0">
+		<form action="?/update" method='post' class="flex flex-col items-center mt-10">
+				<div class="flex items-center justify-center w-[60vh] h-5 gap-3 mb-0">
 					<label for="blogname">blog title</label>
 					<input type="text" required name="blogname" class="px-1 text-gray-800" value={selectedItem.blogname}>
 					<label for="read">Read</label>
