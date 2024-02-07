@@ -1,5 +1,7 @@
 <script>
 	export let data
+
+	let selectedItem
 </script>
 
 <div class="flex flex-col justify-center w-1/2 h-full align-items">
@@ -10,7 +12,7 @@
 			<label for="blogname">blog title</label>
 			<input type="text" required name="blogname" class="px-1 text-gray-800">
 			<label for="read">Read</label>
-			<input type="checkbox">
+			<input name="read" type="checkbox">
 		</div>
 		<button type="submit" class="pt-0 mt-0">Add</button>
 		<hr>
@@ -18,10 +20,26 @@
 
 	<div>
 		<ol>
-			{#each data?.records as record}
-			<li>{`Blog Title: ${record.blogname} - Status: ${record.read ? 'read':'not read'}`}</li>
+			{#each data?.records as record, index}
+			<li>
+				<input id={`blog-checkbox-${index}`} checked={selectedItem?.blogname === record.blogname} type="checkbox" value={JSON.stringify(record)} on:click={()=> selectedItem = (selectedItem?.blogname !== record.blogname)? record  : undefined}/>
+				{`Blog Title: ${record.blogname} - Status: ${record.read ? 'read':'not read'}`}
+			</li>			
 			<hr>
 			{/each}
 		</ol>
+		{#if selectedItem}
+		<form action="?/update" method='post' class="flex flex-col mt-10">
+				<div class="flex items-center justify-start w-[60vh] h-5 gap-3 mb-0">
+					<label for="blogname">blog title</label>
+					<input type="text" required name="blogname" class="px-1 text-gray-800" value={selectedItem.blogname}>
+					<label for="read">Read</label>
+					<input type="checkbox" name="read">
+					<input type="hidden" id='id' name="id" value={selectedItem.id}>
+				</div>
+				
+				<button type="submit">Edit</button>
+			</form>
+			{/if}
 	</div>
 </div>
