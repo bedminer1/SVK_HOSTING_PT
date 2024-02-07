@@ -1,11 +1,11 @@
 <script>
     export let data
-    const { username,title } = data
+    const { user,title } = data
 
 </script>
 
 <div class="flex flex-col justify-center h-full text-2xl">
-    <h1 class="text-3xl">{title} for {username}</h1>
+    <h1 class="text-3xl">{title} for {user}</h1>
     <div>
         <p><a href="/products/1">Product 1</a></p>
     </div>
