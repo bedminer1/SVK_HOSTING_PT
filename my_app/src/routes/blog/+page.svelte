@@ -20,7 +20,7 @@
 	<div>
 		<ol class="flex justify-start ">
 			{#each data?.records as record, index}
-			<li class="w-2/3 border-l-2">
+			<li class="border-l-2 w-44">
 				<input id={`blog-checkbox-${index}`} checked={selectedItem?.blogname === record.blogname} type="checkbox" value={JSON.stringify(record)} on:click={()=> selectedItem = (selectedItem?.blogname !== record.blogname)? record  : undefined}/>
 				{`Blog Title: ${record.blogname} - Status: ${record.read ? 'read':'not read'}`}
 			</li>			
@@ -38,6 +38,10 @@
 				</div>
 				
 				<button type="submit">Edit</button>
+			</form>
+			<form method="post" action="?/delete">
+				<input type="hidden" id='id' name="id" value={selectedItem.id}>
+				<button type="submit">Delete</button>
 			</form>
 			{/if}
 	</div>

@@ -13,7 +13,7 @@ export const actions = {
 
     const newRecord = {
       blogname,
-      read: read === 'on',
+      read: read === "on",
     };
 
     const record = await pb.collection("blogs").create(newRecord);
@@ -27,14 +27,24 @@ export const actions = {
     const blogname = form.get("blogname") ?? "";
     const read = form.get("read");
     const id = form.get("id") ?? "";
-    console.log(read)
 
     const newRecord = {
       blogname,
-      read: read === 'on',
+      read: read === "on",
     };
 
     await pb.collection("blogs").update(id, newRecord);
+  },
+
+  delete: async ({ request }) => {
+    const pb = new PocketBase("http://localhost:8090");
+    await pb.admins.authWithPassword(SECRET_EMAIL, SECRET_PASSWORD);
+
+    const form = await request.formData();
+    const id = form.get("id") ?? "";
+    console.log(id)
+
+    await pb.collection('blogs').delete(id)
   },
 };
 
