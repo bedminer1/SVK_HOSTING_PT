@@ -18,3 +18,22 @@ export const actions = {
     const record = await pb.collection("blogs").create(newRecord);
   },
 };
+
+export async function load() {
+  const pb = new PocketBase("http://localhost:8090");
+  await pb.admins.authWithPassword(SECRET_EMAIL, SECRET_PASSWORD);
+  const records = await pb.collection("blogs").getFullList(200, {
+    sort: "-created",
+  });
+
+  const results = records.map((record) => {
+    return {
+      blogname: record.blogname,
+      read: record.read,
+    };
+  });
+
+  return {
+    records: results,
+  };
+};
