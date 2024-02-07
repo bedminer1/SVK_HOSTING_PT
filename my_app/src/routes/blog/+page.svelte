@@ -4,7 +4,7 @@
 	let selectedItem
 </script>
 
-<div class="flex flex-col justify-center w-3/4 h-full align-items">
+<div class="flex flex-col justify-center w-3/4 h-full text-2xl align-items">
 	<h2 class="text-5xl text-center">Blog</h2>
 	
 	<form action="?/create" method="post" class="flex flex-col items-center gap-1 pb-2 mt-8 mb-8 border-b-2">
@@ -20,7 +20,7 @@
 	<div>
 		<ol class="flex justify-start ">
 			{#each data?.records as record, index}
-			<li class="border-l-2 w-44">
+			<li class="w-48 mr-4 border-l-2">
 				<input id={`blog-checkbox-${index}`} checked={selectedItem?.blogname === record.blogname} type="checkbox" value={JSON.stringify(record)} on:click={()=> selectedItem = (selectedItem?.blogname !== record.blogname)? record  : undefined}/>
 				{`Blog Title: ${record.blogname} - Status: ${record.read ? 'read':'not read'}`}
 			</li>			

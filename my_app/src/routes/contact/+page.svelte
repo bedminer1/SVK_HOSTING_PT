@@ -1,4 +1,4 @@
-<div class="flex flex-col justify-center w-1/2 h-full text-center align-items">
-	<h2 class="text-5xl text-center">Contact Us</h2>
-	<p class="text-xl text-center">Lorem ipsum dolor sit amet consectetur, adipisicing elit. A atque corrupti excepturi rerum dolorum ut aperiam nemo eum ratione? Laborum ad quasi nulla tempora architecto voluptate officiis, facere tenetur totam.</p>
+<div class="flex flex-col justify-center w-full h-full text-center align-items">
+	<h2 class="w-full text-5xl text-center">Contact Me</h2>
+	<a href="https://twitter.com/Bbipper1" target="_blank" class="w-full">@Bbipper1 on X</a>
 </div>
