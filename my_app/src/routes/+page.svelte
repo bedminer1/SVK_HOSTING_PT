@@ -1,6 +1,10 @@
 <script>
 	import '../app.css';
 	import { goto } from '$app/navigation'
+	import { dev } from '$app/environment';
+	import { inject } from '@vercel/analytics';
+	
+	inject({ mode: dev ? 'development' : 'production' });
 
 	export let data
 	const { user, username } = data
