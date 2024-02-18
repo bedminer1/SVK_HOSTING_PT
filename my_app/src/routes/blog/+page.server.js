@@ -1,11 +1,7 @@
 import PocketBase from "pocketbase";
-// import { SECRET_EMAIL, SECRET_PASSWORD } from "$env/static/private";
-// $app.getEnv("SECRET_PASSWORD");
-// $app.getEnv("SECRET_EMAIL");
+import { SECRET_EMAIL, SECRET_PASSWORD, SECRET_URL } from "$env/static/private";
 
-let SECRET_PASSWORD = 'BWseSz8QqbmP7C7'
-let SECRET_EMAIL = 'alexander.seah.min.rui@gmail.com'
-let url = "https://bedsshop.pockethost.io/";
+let url = SECRET_URL;
 
 export const actions = {
   create: async ({ request }) => {
